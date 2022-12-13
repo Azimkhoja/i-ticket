@@ -5,6 +5,7 @@ import { SequelizeModule } from "@nestjs/sequelize";
 import { Event } from "./events/entities/event.entity";
 import { VenuesModule } from "./venues/venues.module";
 import { Venue } from "./venues/entities/venue.entity";
+import { CustomersModule } from './customers/customers.module';
 
 @Module({
   imports: [
@@ -24,6 +25,7 @@ import { Venue } from "./venues/entities/venue.entity";
     }),
     EventsModule,
     VenuesModule,
+    CustomersModule,
   ],
   controllers: [],
   providers: [],
