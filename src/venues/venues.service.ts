@@ -1,26 +1,30 @@
-import { Injectable } from '@nestjs/common';
-import { CreateVenueDto } from './dto/create-venue.dto';
-import { UpdateVenueDto } from './dto/update-venue.dto';
+import { Injectable } from "@nestjs/common";
+import { InjectModel } from "@nestjs/sequelize";
+import { CreateVenueDto } from "./dto/create-venue.dto";
+import { UpdateVenueDto } from "./dto/update-venue.dto";
+import { Venue } from "./entities/venue.entity";
 
 @Injectable()
 export class VenuesService {
-  create(createVenueDto: CreateVenueDto) {
-    return 'This action adds a new venue';
+  constructor(@InjectModel(Venue) private venueRepository: typeof Venue) {}
+  async create(createVenueDto: CreateVenueDto) {
+    const newVenue = await this.venueRepository.create(createVenueDto);
+    return newVenue;
   }
 
-  findAll() {
-    return `This action returns all venues`;
+  async findAll() {
+    return this.venueRepository.findAll();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} venue`;
+  async findOne(id: number) {
+    return this.venueRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateVenueDto: UpdateVenueDto) {
-    return `This action updates a #${id} venue`;
+  async update(id: number, updateVenueDto: UpdateVenueDto) {
+    return this.venueRepository.update(updateVenueDto, { where: { id } });
   }
 
-  remove(id: number) {
-    return `This action removes a #${id} venue`;
+  async remove(id: number) {
+    return this.venueRepository.destroy({ where: { id } });
   }
 }

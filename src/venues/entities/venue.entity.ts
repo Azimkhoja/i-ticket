@@ -1,6 +1,6 @@
 import { Table, Model, Column, DataType } from "sequelize-typescript";
 
-@Table({ tableName: "venues", freezeTableName: true })
+@Table({ tableName: "venues", freezeTableName: true, timestamps: false })
 export class Venue extends Model<Venue> {
   @Column({
     type: DataType.INTEGER,

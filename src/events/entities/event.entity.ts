@@ -54,9 +54,10 @@ export class Event extends Model<Event> {
   })
   venue_id: number;
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.STRING,
+    allowNull: false
   })
-  lang_id: number;
+  lang: string;
   @Column({
     type: DataType.DATE,
   })

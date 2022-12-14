@@ -10,7 +10,9 @@ import {
 import { VenuesService } from "./venues.service";
 import { CreateVenueDto } from "./dto/create-venue.dto";
 import { UpdateVenueDto } from "./dto/update-venue.dto";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Venues")
 @Controller("venues")
 export class VenuesController {
   constructor(private readonly venuesService: VenuesService) {}

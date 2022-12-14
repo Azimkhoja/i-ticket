@@ -5,7 +5,11 @@ import { SequelizeModule } from "@nestjs/sequelize";
 import { Event } from "./events/entities/event.entity";
 import { VenuesModule } from "./venues/venues.module";
 import { Venue } from "./venues/entities/venue.entity";
-import { CustomersModule } from './customers/customers.module';
+import { CustomersModule } from "./customers/customers.module";
+import { Customer } from "./customers/entities/customer.entity";
+import { AdminModule } from "./admin/admin.module";
+import { Admin } from "./admin/entities/admin.entity";
+import { TicketModule } from './ticket/ticket.module';
 
 @Module({
   imports: [
@@ -19,13 +23,15 @@ import { CustomersModule } from './customers/customers.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Event, Venue],
+      models: [Event, Venue, Customer, Admin],
       autoLoadModels: true,
       logging: false,
     }),
     EventsModule,
     VenuesModule,
     CustomersModule,
+    AdminModule,
+    TicketModule,
   ],
   controllers: [],
   providers: [],
