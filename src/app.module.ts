@@ -12,6 +12,8 @@ import { Admin } from "./admin/entities/admin.entity";
 import { TicketModule } from "./ticket/ticket.module";
 import { SeatModule } from "./seat/seat.module";
 import { Seat } from "./seat/entities/seat.entity";
+import { CustomerCardModule } from './customer_card/customer_card.module';
+import { BookingModule } from './booking/booking.module';
 
 @Module({
   imports: [
@@ -35,6 +37,8 @@ import { Seat } from "./seat/entities/seat.entity";
     AdminModule,
     TicketModule,
     SeatModule,
+    CustomerCardModule,
+    BookingModule,
   ],
   controllers: [],
   providers: [],
