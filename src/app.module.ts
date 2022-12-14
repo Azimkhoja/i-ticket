@@ -9,7 +9,9 @@ import { CustomersModule } from "./customers/customers.module";
 import { Customer } from "./customers/entities/customer.entity";
 import { AdminModule } from "./admin/admin.module";
 import { Admin } from "./admin/entities/admin.entity";
-import { TicketModule } from './ticket/ticket.module';
+import { TicketModule } from "./ticket/ticket.module";
+import { SeatModule } from "./seat/seat.module";
+import { Seat } from "./seat/entities/seat.entity";
 
 @Module({
   imports: [
@@ -23,7 +25,7 @@ import { TicketModule } from './ticket/ticket.module';
       username: process.env.POSTGRES_USER,
       password: process.env.POSTGRES_PASSWORD,
       database: process.env.POSTGRES_DB,
-      models: [Event, Venue, Customer, Admin],
+      models: [Event, Venue, Customer, Admin, Seat],
       autoLoadModels: true,
       logging: false,
     }),
@@ -32,6 +34,7 @@ import { TicketModule } from './ticket/ticket.module';
     CustomersModule,
     AdminModule,
     TicketModule,
+    SeatModule,
   ],
   controllers: [],
   providers: [],
