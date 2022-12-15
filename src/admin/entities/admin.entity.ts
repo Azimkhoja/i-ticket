@@ -3,7 +3,7 @@ import { Column, DataType, Model, Table } from "sequelize-typescript";
 @Table({ tableName: "admins", freezeTableName: true, timestamps: false })
 export class Admin extends Model<Admin> {
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
     unique: true,
     autoIncrement: true,
     primaryKey: true,

@@ -1,5 +1,6 @@
-import { Column, DataType, Model } from "sequelize-typescript";
+import { Column, DataType, Model, Table } from "sequelize-typescript";
 
+@Table({ tableName: "event_types", freezeTableName: true, timestamps: false })
 export class EventType extends Model<EventType> {
   @Column({
     type: DataType.INTEGER,

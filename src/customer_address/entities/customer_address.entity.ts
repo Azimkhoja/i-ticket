@@ -1,9 +1,12 @@
-import { uniq } from "lodash";
-import { Column, DataType, Model } from "sequelize-typescript";
+import { Column, DataType, Model, Table } from "sequelize-typescript";
 
+@Table({ tableName: "customer_address", freezeTableName: true, timestamps: false })
 export class CustomerAddress extends Model<CustomerAddress> {
   @Column({
     type: DataType.INTEGER,
+    unique: true,
+    autoIncrement: true,
+    primaryKey: true
   })
   id: number;
   @Column({

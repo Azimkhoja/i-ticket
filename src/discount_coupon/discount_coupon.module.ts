@@ -8,6 +8,6 @@ import { DiscountCoupon } from "./entities/discount_coupon.entity";
   imports: [SequelizeModule.forFeature([DiscountCoupon])],
   controllers: [DiscountCouponController],
   providers: [DiscountCouponService],
-  exports: [DiscountCoupon],
+  exports: [DiscountCouponService],
 })
 export class DiscountCouponModule {}

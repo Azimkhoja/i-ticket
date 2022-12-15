@@ -8,5 +8,6 @@ import { Ticket } from "./entities/ticket.entity";
   imports: [SequelizeModule.forFeature([Ticket])],
   controllers: [TicketController],
   providers: [TicketService],
+  exports: [TicketService],
 })
 export class TicketModule {}

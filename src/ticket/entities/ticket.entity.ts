@@ -4,9 +4,11 @@ import {
   DataType,
   ForeignKey,
   Model,
+  Table,
 } from "sequelize-typescript";
 import { Event } from "src/events/entities/event.entity";
 
+@Table({ tableName: "tickets", freezeTableName: true, timestamps: false })
 export class Ticket extends Model<Ticket> {
   @Column({
     type: DataType.INTEGER,

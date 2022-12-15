@@ -10,25 +10,25 @@ export class CustomerAddressService {
     @InjectModel(CustomerAddress)
     private customerAddressRepository: typeof CustomerAddress
   ) {}
-  create(createCustomerAddressDto: CreateCustomerAddressDto) {
+  async create(createCustomerAddressDto: CreateCustomerAddressDto) {
     return this.customerAddressRepository.create(createCustomerAddressDto);
   }
 
-  findAll() {
+  async findAll() {
     return this, this.customerAddressRepository.findAll();
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return this.customerAddressRepository.findOne({ where: { id } });
   }
 
-  update(id: number, updateCustomerAddressDto: UpdateCustomerAddressDto) {
+  async update(id: number, updateCustomerAddressDto: UpdateCustomerAddressDto) {
     return this.customerAddressRepository.update(updateCustomerAddressDto, {
       where: { id },
     });
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return this.customerAddressRepository.destroy({ where: { id } });
   }
 }

@@ -8,5 +8,6 @@ import { Booking } from "./entities/booking.entity";
   imports: [SequelizeModule.forFeature([Booking])],
   controllers: [BookingController],
   providers: [BookingService],
+  exports: [BookingService],
 })
 export class BookingModule {}

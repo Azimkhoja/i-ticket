@@ -1,8 +1,15 @@
-import { Column, DataType, ForeignKey, Model } from "sequelize-typescript";
+import {
+  Column,
+  DataType,
+  ForeignKey,
+  Model,
+  Table,
+} from "sequelize-typescript";
 
+@Table({ tableName: "bookings", freezeTableName: true, timestamps: false })
 export class Booking extends Model<Booking> {
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
     unique: true,
     autoIncrement: true,
     primaryKey: true,
@@ -40,6 +47,5 @@ export class Booking extends Model<Booking> {
   })
   status_id: number;
 }
-
 
 // bu tablda 5 ta #foreignkey joylanishi kerak

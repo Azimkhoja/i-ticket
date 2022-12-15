@@ -4,9 +4,11 @@ import {
   DataType,
   ForeignKey,
   Model,
+  Table,
 } from "sequelize-typescript";
 import { Venue } from "src/venues/entities/venue.entity";
 
+@Table({ tableName: "venue_photos", freezeTableName: true, timestamps: false })
 export class VenuePhoto extends Model<VenuePhoto> {
   @Column({
     type: DataType.INTEGER,
@@ -17,7 +19,7 @@ export class VenuePhoto extends Model<VenuePhoto> {
   id: number;
   @ForeignKey(() => Venue)
   @Column({
-    type: DataType.STRING,
+    type: DataType.INTEGER,
   })
   venue_id: number;
   @Column({

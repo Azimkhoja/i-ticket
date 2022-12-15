@@ -1,5 +1,6 @@
-import { Column, DataType, Model } from "sequelize-typescript";
+import { Column, DataType, Model, Table } from "sequelize-typescript";
 
+@Table({ tableName: "carts", freezeTableName: true, timestamps: false })
 export class Cart extends Model<Cart> {
   @Column({
     type: DataType.INTEGER,

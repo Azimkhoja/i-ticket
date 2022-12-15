@@ -7,6 +7,7 @@ import { CustomerAddress } from './entities/customer_address.entity';
 @Module({
   imports: [SequelizeModule.forFeature([CustomerAddress])],
   controllers: [CustomerAddressController],
-  providers: [CustomerAddressService]
+  providers: [CustomerAddressService],
+  exports: [CustomerAddressService]
 })
 export class CustomerAddressModule {}

@@ -8,5 +8,6 @@ import { VenuePhoto } from "./entities/venue_photo.entity";
   imports: [SequelizeModule.forFeature([VenuePhoto])],
   controllers: [VenuePhotoController],
   providers: [VenuePhotoService],
+  exports: [VenuePhotoService],
 })
 export class VenuePhotoModule {}

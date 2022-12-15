@@ -1,5 +1,6 @@
-import { Column, DataType, Model } from "sequelize-typescript";
+import { Column, DataType, Model, Table } from "sequelize-typescript";
 
+@Table({ tableName: "seat_types", freezeTableName: true, timestamps: false })
 export class SeatType extends Model<SeatType> {
   @Column({
     type: DataType.INTEGER,

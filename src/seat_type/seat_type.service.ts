@@ -7,7 +7,7 @@ import { SeatType } from "./entities/seat_type.entity";
 @Injectable()
 export class SeatTypeService {
   constructor(
-    @InjectModel(SeatType) private seatTypeRepository: typeof SeatType
+  @InjectModel(SeatType) private seatTypeRepository: typeof SeatType
   ) {}
   async create(createSeatTypeDto: CreateSeatTypeDto) {
     return this.seatTypeRepository.create(createSeatTypeDto);

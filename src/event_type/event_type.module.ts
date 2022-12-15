@@ -8,5 +8,6 @@ import { EventType } from "./entities/event_type.entity";
   imports: [SequelizeModule.forFeature([EventType])],
   controllers: [EventTypeController],
   providers: [EventTypeService],
+  exports: [EventTypeService],
 })
 export class EventTypeModule {}
