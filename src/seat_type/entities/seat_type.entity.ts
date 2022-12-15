@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { Column, DataType, Model, Table } from "sequelize-typescript";
 
 @Table({ tableName: "seat_types", freezeTableName: true, timestamps: false })
@@ -9,6 +10,7 @@ export class SeatType extends Model<SeatType> {
     primaryKey: true,
   })
   id: number;
+  @ApiProperty()
   @Column({
     type: DataType.STRING,
     allowNull: false,

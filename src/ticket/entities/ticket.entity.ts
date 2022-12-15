@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import {
   BelongsTo,
   Column,
@@ -18,6 +19,7 @@ export class Ticket extends Model<Ticket> {
   })
   id: number;
   @ForeignKey(() => Event)
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
     allowNull: false,
@@ -26,24 +28,29 @@ export class Ticket extends Model<Ticket> {
 
   @BelongsTo(() => Event)
   event: Event[];
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
   seat_id: number;
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
   price: number;
+  @ApiProperty()
   @Column({
     type: DataType.STRING,
   })
   service_fee: number;
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
   status_id: number;
+  @ApiProperty()
   @Column({
-    type: DataType.INTEGER,
+    type: DataType.STRING,
   })
-  ticket_type: number;
+  ticket_type: string;
 }

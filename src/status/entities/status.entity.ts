@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { Column, DataType, Model, Table } from "sequelize-typescript";
 
 @Table({
@@ -13,6 +14,7 @@ export class Status extends Model<Status> {
     primaryKey: true,
   })
   id: number;
+  @ApiProperty()
   @Column({
     type: DataType.STRING,
     allowNull: false,

@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import { uniq } from "lodash";
 import {
   BelongsTo,
@@ -18,29 +19,35 @@ export class Seat extends Model<Seat> {
     primaryKey: true,
   })
   id: number;
+  @ApiProperty()
   @Column({
     type: DataType.STRING,
   })
   sector: string;
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
   row_number: number;
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
   number: number;
   @ForeignKey(() => Venue)
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
   venue_id;
   @BelongsTo(() => Venue)
   venue: Venue;
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
   seat_type_id: number;
+  @ApiProperty()
   @Column({
     type: DataType.STRING,
   })

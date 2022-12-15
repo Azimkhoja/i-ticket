@@ -1,3 +1,4 @@
+import { ApiProperty } from "@nestjs/swagger";
 import {
   BelongsTo,
   Column,
@@ -21,6 +22,7 @@ export class Region extends Model<Region> {
     primaryKey: true,
   })
   id: number;
+  @ApiProperty()
   @Column({
     type: DataType.STRING,
     allowNull: false,
@@ -28,6 +30,7 @@ export class Region extends Model<Region> {
   })
   name: string;
   @ForeignKey(() => Country)
+  @ApiProperty()
   @Column({
     type: DataType.INTEGER,
   })
