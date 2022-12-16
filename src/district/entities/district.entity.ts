@@ -29,13 +29,13 @@ export class District extends Model<District> {
     unique: true,
   })
   name: string;
-  @ForeignKey(() => Region)
   @ApiProperty()
+  @ForeignKey(() => Region)
   @Column({
     type: DataType.INTEGER,
   })
   region_id: number;
 
   @BelongsTo(() => Region)
-  country: Region;
+  region: Region;
 }

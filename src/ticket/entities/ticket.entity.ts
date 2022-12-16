@@ -8,6 +8,8 @@ import {
   Table,
 } from "sequelize-typescript";
 import { Event } from "src/events/entities/event.entity";
+import { Seat } from "src/seat/entities/seat.entity";
+import { Status } from "src/status/entities/status.entity";
 
 @Table({ tableName: "tickets", freezeTableName: true, timestamps: false })
 export class Ticket extends Model<Ticket> {
@@ -28,7 +30,9 @@ export class Ticket extends Model<Ticket> {
 
   @BelongsTo(() => Event)
   event: Event[];
+
   @ApiProperty()
+  @ForeignKey(() => Seat)
   @Column({
     type: DataType.INTEGER,
   })
@@ -44,6 +48,7 @@ export class Ticket extends Model<Ticket> {
   })
   service_fee: number;
   @ApiProperty()
+  @ForeignKey(() => Status)
   @Column({
     type: DataType.INTEGER,
   })
@@ -53,4 +58,8 @@ export class Ticket extends Model<Ticket> {
     type: DataType.STRING,
   })
   ticket_type: string;
+  @BelongsTo(() => Seat)
+  seat: Seat;
+  @BelongsTo(() => Status)
+  status: Status;
 }

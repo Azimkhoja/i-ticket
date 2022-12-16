@@ -62,3 +62,5 @@ export class Customer extends Model<Customer> {
   })
   hashed_refresh_token: string;
 }
+
+// gender va lang tabllari hali yaratilmagan

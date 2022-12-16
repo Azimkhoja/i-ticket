@@ -30,5 +30,5 @@ export class VenuePhoto extends Model<VenuePhoto> {
   })
   photo_url: string;
   @BelongsTo(() => Venue)
-  venue: Venue[];
+  venue: Venue;
 }

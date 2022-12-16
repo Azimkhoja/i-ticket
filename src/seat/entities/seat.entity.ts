@@ -8,6 +8,7 @@ import {
   Model,
   Table,
 } from "sequelize-typescript";
+import { SeatType } from "src/seat_type/entities/seat_type.entity";
 import { Venue } from "src/venues/entities/venue.entity";
 
 @Table({ tableName: "seats", freezeTableName: true, timestamps: false })
@@ -34,15 +35,14 @@ export class Seat extends Model<Seat> {
     type: DataType.INTEGER,
   })
   number: number;
-  @ForeignKey(() => Venue)
   @ApiProperty()
+  @ForeignKey(() => Venue)
   @Column({
     type: DataType.INTEGER,
   })
   venue_id;
-  @BelongsTo(() => Venue)
-  venue: Venue;
   @ApiProperty()
+  @ForeignKey(() => SeatType)
   @Column({
     type: DataType.INTEGER,
   })
@@ -51,5 +51,10 @@ export class Seat extends Model<Seat> {
   @Column({
     type: DataType.STRING,
   })
-  location_id_schema: string;
+  location_in_schema: string;
+
+  @BelongsTo(() => Venue)
+  venue: Venue;
+  @BelongsTo(() => SeatType)
+  seatType: SeatType;
 }
