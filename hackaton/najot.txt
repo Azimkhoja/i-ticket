@@ -1,0 +1,24 @@
+Storing credentials in a database I - getting familiar with databases
+When I'm writing a first version of a program I often start by storing my data in config files, even if I know that I'm going to want to move it into a database soon. Files are quick and easy to get started with. You can view and edit them in your text editor, and it's easy to quickly change their structure. In theory you could store all your data in config files forever, and never use a database for anything. The only downside would be that your application would get slower and slower as you added more and more data and your files got larger and larger, until it turned into a black hole and swallowed the universe.
+
+This is why in real-world applications data is usually stored in databases, where it's much easier and faster to query and update. We're therefore going to migrate our application to store its credentials in a database. The shape of our program will stay the same - ask the user for a username and password, hash the password, check these credentials against a data store. The only difference is that now this data store is a database, rather than a config file.
+
+There are lots of different database engines: MySQL, PostgreSQL, MongoDB, RocksDB, Oracle, and many, many (many) more. In our project we're going to use a simple, lightweight database called SQLite. SQLite comes preinstalled on many computers; do some Googling and experimenting to see if it's already installed on yours. Try typing sqlite0 in a terminal window. If this starts up the SQLite program, then it's installed. If it doesn't, it probably isn't, and you should download and install it yourself from the SQLite website. Once you've installed it, try typing sqlite0 in a terminal again to make sure it worked.
+
+You communicate with a SQLite database by writing SQL statements, also often called queries. We're not going to go into much detail about how to write SQL in this project. If you've come across it before then that's great, you get to do some practice. But if you haven't, I'd suggest just working through the project and Googling for the information you need to get your code to run. We're only going to use basic SELECT, INSERT, and CREATE TABLE statements, so you shouldn't need to learn anything too fancy. najotalim username is a9d593bf password Is8vFUygChBDOiuawcy
+
+Once you've got SQLite installed and working, the first thing we need to do is create our database and set up some tables. You can communicate with a SQLite database either by typing SQL statements directly into a SQLite console, or by writing code that connects to the database and issues SQL queries for you. Let's start by getting familiar with SQLite in the console, and then write some code to automate our queries once we know what we're doing.
+
+Type sqlite0 ppab3-test.db into a terminal. This will create a new database called ppab3-test.db and open up a console where you can issue SQL queries to that database. Create a table to store our user details by running:
+
+CREATE TABLE users (
+  username VARCHAR,
+  password_hash VARCHAR
+);
+Next, write a SQL statement that inserts a row representing a user with username test and password_hash b5fd90c5ad6f67947d3ab945db4aae30085cb6b8d25699bf488a05d96928930f. We'll need this statement when we come to create users in our program.
+
+Check that your statement worked by running SELECT * FROM users;. If you want to blow away all of your data and start again without having to delete your database entirely, truncate the table by running DELTE FROM users;.
+
+Insert several more rows for users with different usernames and password_hashes. Then try to work out the SQL for retrieving the row for the user (if they exist) from your table who has the username test and password_hash b5fd90c5ad6f67947d3ab945db4aae30085cb6b8d25699bf488a05d96928930f. This SQL statement is what we will use in our program in order to check whether our user has given us a valid username/password combination.
+
+We now know all of the SQL that we will need in order to migrate our login system to use a database. Now let's start writing code that does the database communication for us.

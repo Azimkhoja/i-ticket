@@ -1,7 +1,7 @@
 {
   "name": "i-ticket",
   "version": "0.0.1",
-  "description": "",
+  "description": "<p align=\"center\">   <a href=\"http://nestjs.com/\" target=\"blank\"><img src=\"https://nestjs.com/img/logo-small.svg\" width=\"200\" alt=\"Nest Logo\" /></a> </p>",
   "author": "",
   "private": true,
   "license": "UNLICENSED",
@@ -29,9 +29,11 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/sequelize": "^9.0.0",
     "@nestjs/swagger": "^6.1.4",
+    "@types/cookie-parser": "^1.4.3",
     "bcryptjs": "^2.4.3",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.13.2",
+    "cookie-parser": "^1.4.6",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.3",
     "pg": "^8.8.0",
@@ -83,5 +85,15 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node"
-  }
+  },
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Azimkhoja/i-ticket.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Azimkhoja/i-ticket/issues"
+  },
+  "homepage": "https://github.com/Azimkhoja/i-ticket#readme"
 }

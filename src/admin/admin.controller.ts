@@ -6,10 +6,13 @@ import {
   Patch,
   Param,
   Delete,
+  Res,
 } from "@nestjs/common";
 import { ApiOperation, ApiResponse, ApiTags } from "@nestjs/swagger";
+import { Response } from "express";
 import { AdminService } from "./admin.service";
 import { CreateAdminDto } from "./dto/create-admin.dto";
+import { LoginDto } from "./dto/login-admin.dto";
 import { UpdateAdminDto } from "./dto/update-admin.dto";
 import { Admin } from "./entities/admin.entity";
 
@@ -23,6 +26,21 @@ export class AdminController {
   @Post()
   create(@Body() createAdminDto: CreateAdminDto) {
     return this.adminService.create(createAdminDto);
+  }
+  @ApiOperation({ summary: "Admin registrate" })
+  @ApiResponse({ status: 201, type: Admin })
+  @Post("registrate")
+  registrate(
+    @Body() createAdminDto: CreateAdminDto,
+    @Res({ passthrough: true }) res: Response
+  ) {
+    return this.adminService.registrate(createAdminDto, res);
+  }
+  @ApiOperation({ summary: "login Admin" })
+  @ApiResponse({ status: 201, type: Admin })
+  @Post("login")
+  login(@Body() loginDto: LoginDto, @Res({ passthrough: true }) res: Response) {
+    return this.adminService.login(loginDto, res);
   }
 
   @ApiOperation({ summary: "Barcha adminlar ro'yxatini olish" })
